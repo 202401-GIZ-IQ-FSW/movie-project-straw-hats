@@ -1,29 +1,17 @@
-
 import React from 'react';
+import Navbar from '/components/Navbar';
 
-export default function Home({ popularMovies }) {
+const HomePage = () => {
   return (
     <div>
-      <h1>Popular Movies</h1>
-      <ul>
-        {popularMovies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+      <Navbar />
+      <div className="container mx-auto py-8">
+        <h1 className="text-3xl font-bold mb-4">Welcome to Straw Hats</h1>
+        <p className="text-lg text-gray-700 mb-6">Discover the latest movies, explore top-rated TV series, and read reviews from fellow movie enthusiasts.</p>
+        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Get Started</button>
+      </div>
     </div>
   );
-}
+};
 
-export async function getServerSideProps() {
-  const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
-  const baseUrl = process.env.NEXT_PUBLIC_TMDB_BASE_URL;
-
-  const response = await fetch(`${baseUrl}/movie/popular?api_key=${apiKey}`);
-  const data = await response.json();
-
-  return {
-    props: {
-      popularMovies: data.results,
-    },
-  };
-}
+export default HomePage;
