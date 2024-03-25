@@ -1,54 +1,66 @@
 /* navbar.module.css */
 
 .navbar {
-    background-color: #ff9900; /* Straw Hat yellow */
-  }
-  
-  .navbarList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbarItem {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  .navbarLink {
-    color: #fff; /* White */
-    text-decoration: none;
-  }
-  
-  .navbarLink:hover {
-    text-decoration: underline;
-  }
-  
-  /* Dropdown styles */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdownContent {
-    display: none;
-    position: absolute;
-    background-color: #ff9900; /* Straw Hat yellow */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-  
-  .dropdown:hover .dropdownContent {
-    display: block;
-  }
-  
-  .dropdownItem {
-    padding: 8px 12px;
-    color: #fff; /* White */
-    text-decoration: none;
-  }
-  
-  .dropdownItem:hover {
-    background-color: #fff; /* White */
-    color: #ff9900; /* Straw Hat yellow */
-  }
-  
+  background-color: #ff9900; /* Straw Hat yellow */
+}
+
+.navbarList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarItem {
+  display: inline;
+  margin-right: 10px;
+}
+
+.navbarLink {
+  color: #f80909; /* White */
+  text-decoration: none;
+}
+
+.navbarLink:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the genres button */
+  left: 0; /* Align the dropdown with the left edge of the genres button */
+  background-color: #ff9900; /* Straw Hat yellow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: 120px; /* Set a specific width for the dropdown */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Adjust dropdown display */
+.open {
+  display: flex;
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  color: #fff; /* White */
+  text-decoration: none;
+}
+
+.dropdownItem:hover {
+  background-color: #fff; /* White */
+  color: #ff9900; /* Straw Hat yellow */
+}
+/* navbar.module.css */
+
+/* Add a custom class for the dropdown button */
+.dropdownButton {
+  color: #ff0000; /* Luffy red */
+}
