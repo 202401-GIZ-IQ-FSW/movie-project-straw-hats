@@ -14,10 +14,12 @@ export default function Header() {
     <div className='flex justify-between p-3 max-w-6xl mx-auto'>
         <div className="flex gap-4">
           <MenuIteam  title="home" address="/" Icon={AiFillHome} />
-          <MenuIteam  title="about" address="/about" Icon={BsFillInfoCircleFill} />
+          
           <MenuIteam  title="Movies page" address="/Moviespage" Icon={MdLocalMovies} />
           <MenuIteam  title="Single Movie page" address="/SingleMoviepage" Icon={RiMovie2Fill} />
           <MenuIteam  title="Single actors page" address="/Singleactorspage" Icon={FaPerson} />
+
+          <MenuIteam  title="about" address="/about" Icon={BsFillInfoCircleFill} />
         </div>
         <div className='flex items-center gap-4 '>
           <DarkModeSwitch /> 
