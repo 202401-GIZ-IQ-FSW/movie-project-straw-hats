@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <div className='flex justify-between p-3 max-w-6xl mx-auto'>
         <div className="flex gap-4">
-          <MenuIteam  title="home" address="/" Icon={AiFillHome} />
+          <MenuIteam  title="home" address="/" Icon={AiFillHome}   />
           
           <MenuIteam  title="Movies page" address="/Moviespage" Icon={MdLocalMovies} />
           <MenuIteam  title="Single Movie page" address="/SingleMoviepage" Icon={RiMovie2Fill} />
@@ -24,7 +24,7 @@ export default function Header() {
         <div className='flex items-center gap-4 '>
           <DarkModeSwitch /> 
             <Link href={'/'} className='flex gap-1 items-center' >
-            <span className="text-white text-2xl font-bold  bg-zinc-900 py-1 px-2 rounded-lg  ">Straw</span>
+            <span className="text-white text-2xl font-bold  bg-sky-600 py-1 px-2 rounded-lg  ">Straw</span>
             <span className='text-xl hiddien sm:inline'>Hats</span>
             
             </Link>
