@@ -1,0 +1,20 @@
+/* globals.css */
+
+/* Apply a global font family */
+body {
+    font-family: 'Inter', sans-serif; /* Assuming you're using the Inter font */
+  }
+  
+  /* Set box-sizing to border-box for all elements */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Add a global padding to the body to prevent content from sticking to the edges */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Add any other global styles or utility classes as needed */
+  
