@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '/components/Navbar';
 import SearchBar from '/Components/SearchBar/SearchBar'; // Update the path if needed
 import '/src/app/globals.css';
 
