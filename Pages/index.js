@@ -1,9 +1,10 @@
 import React from 'react';
 import Navbar from '/components/Navbar';
+import '/src/app/global.css'
 
 const HomePage = ({ movies }) => {
   return (
-    <div>
+    <div>q
       <Navbar />
       <div className="container mx-auto py-8">
         <h1 className="text-3xl font-bold mb-4">Welcome to Straw Hats</h1>
