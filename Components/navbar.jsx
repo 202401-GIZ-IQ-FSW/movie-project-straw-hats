@@ -1,71 +1,94 @@
 import React, { useState } from 'react';
-import styles from './navbar.module.css';
 
 const Navbar = () => {
-  const [isGenresDropdownOpen, setIsGenresDropdownOpen] = useState(false);
   const [isMoviesDropdownOpen, setIsMoviesDropdownOpen] = useState(false);
+  const [isTvShowsDropdownOpen, setIsTvShowsDropdownOpen] = useState(false);
+  const [isActorsDropdownOpen, setIsActorsDropdownOpen] = useState(false);
 
-  const toggleGenresDropdown = () => {
-    setIsGenresDropdownOpen(!isGenresDropdownOpen);
+  const openMoviesDropdown = () => {
+    setIsMoviesDropdownOpen(true);
   };
 
-  const toggleMoviesDropdown = () => {
-    setIsMoviesDropdownOpen(!isMoviesDropdownOpen);
+  const closeMoviesDropdown = () => {
+    setIsMoviesDropdownOpen(false);
+  };
+
+  const openTvShowsDropdown = () => {
+    setIsTvShowsDropdownOpen(true);
+  };
+
+  const closeTvShowsDropdown = () => {
+    setIsTvShowsDropdownOpen(false);
+  };
+
+  const openActorsDropdown = () => {
+    setIsActorsDropdownOpen(true);
+  };
+
+  const closeActorsDropdown = () => {
+    setIsActorsDropdownOpen(false);
   };
 
   return (
-    <nav className={`${styles.navbar}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <span className="text-white font-bold">Straw Hats</span>
-          </div>
-          {/* Navigation Links */}
-          <div className="hidden md:block">
-            <ul className={`${styles.navbarList}`}>
-              {/* Search Button */}
-              <li className={`${styles.navbarItem}`}>
-                <button className={`${styles.navbarLink}`}>Find Something to Watch</button>
-              </li>
-              {/* Genres Dropdown */}
-              <li className={`${styles.navbarItem} ${styles.dropdown}`} onMouseEnter={toggleGenresDropdown} onMouseLeave={toggleGenresDropdown}>
-                {/* Apply the custom class to the dropdown button */}
-                <button className={`${styles.navbarLink} ${styles.dropdownButton}`}>Genres</button>
-                {/* Genres Dropdown Content */}
-                {isGenresDropdownOpen && (
-                  <div className={`${styles.dropdownContent}`}>
-                    {/* Genres Dropdown Items */}
-                    <a href="#" className={`${styles.dropdownItem}`}>Action</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Comedy</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Drama</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Thriller</a>
-                    {/* Add more genre links as needed */}
-                  </div>
-                )}
-              </li>
-              {/* Movies Dropdown */}
-              <li className={`${styles.navbarItem} ${styles.dropdown}`} onMouseEnter={toggleMoviesDropdown} onMouseLeave={toggleMoviesDropdown}>
-                {/* Apply the custom class to the dropdown button */}
-                <button className={`${styles.navbarLink} ${styles.dropdownButton}`}>Movies</button>
-                {/* Movies Dropdown Content */}
-                {isMoviesDropdownOpen && (
-                  <div className={`${styles.dropdownContent}`}>
-                    {/* Movies Dropdown Items */}
-                    <a href="#" className={`${styles.dropdownItem}`}>Action</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Comedy</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Drama</a>
-                    <a href="#" className={`${styles.dropdownItem}`}>Thriller</a>
-                    {/* Add more movie links as needed */}
-                  </div>
-                )}
-              </li>
-              {/* Add more navigation links and dropdowns as needed */}
+    <nav className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-6">
+        <ul className="flex space-x-12">
+          <li><a className="hover:text-gray-200" href="#">Home</a></li>
+          <DropdownCategory
+            category="Movies"
+            isOpen={isMoviesDropdownOpen}
+            onOpen={openMoviesDropdown}
+            onClose={closeMoviesDropdown}
+          >
+            <ul>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Action</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Comedy</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Drama</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Thriller</a></li>
             </ul>
-          </div>
-        </div>
+          </DropdownCategory>
+          <DropdownCategory
+            category="TV Shows"
+            isOpen={isTvShowsDropdownOpen}
+            onOpen={openTvShowsDropdown}
+            onClose={closeTvShowsDropdown}
+          >
+            <ul>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Sci-Fi</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Fantasy</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Crime</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Horror</a></li>
+            </ul>
+          </DropdownCategory>
+          <DropdownCategory
+            category="Actors"
+            isOpen={isActorsDropdownOpen}
+            onOpen={openActorsDropdown}
+            onClose={closeActorsDropdown}
+          >
+            <ul>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Action</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Comedy</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Drama</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Thriller</a></li>
+            </ul>
+          </DropdownCategory>
+        </ul>
       </div>
     </nav>
+  );
+};
+
+const DropdownCategory = ({ category, isOpen, onOpen, onClose, children }) => {
+  return (
+    <li className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
+      <a className="hover:text-gray-200" href="#">{category}</a>
+      {isOpen && (
+        <div className="absolute mt-2 bg-white border border-gray-300 rounded shadow-md" style={{ left: "0", top: "100%" }} onMouseEnter={onOpen} onMouseLeave={onClose}>
+          {children}
+        </div>
+      )}
+    </li>
   );
 };
 
