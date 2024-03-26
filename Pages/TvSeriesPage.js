@@ -22,7 +22,6 @@ const TvSeriesPage = ({ tvSeries: initialTvSeries }) => {
         <p className="text-lg text-gray-700 mb-6">Discover the latest TV series and explore top-rated shows.</p>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Trending and Hot</button>
 
-        {/* Display fetched TV series if available */}
         {tvSeries && tvSeries.length > 0 && (
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {tvSeries.map(tvSeries => (

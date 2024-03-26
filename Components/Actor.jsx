@@ -1,11 +1,9 @@
-// actors.js
-
 import React from 'react';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link'; 
 import Navbar from '/components/Navbar';
-import styles from '/Pages/index.module.css'; // Import your CSS module
+import styles from '/Pages/index.module.css'; 
 import '../src/app/globals.css';
-import ActorPage from '/actor/[id]'; // Import the ActorPage component
+import ActorPage from '/actor/[id]'; 
 
 const ActorPage = ({ actors }) => {
   return (
@@ -16,7 +14,6 @@ const ActorPage = ({ actors }) => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {actors.map(actor => (
             <div key={actor.id} className={`bg-white p-4 rounded shadow-md ${styles.actorCard}`}>
-              {/* Use Link instead of <a> */}
               <Link href={`/actor/${actor.id}`}>
                 <a>
                   <img src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`} alt={actor.name} className={`w-full h-40 object-cover mb-4 rounded ${styles.actorImage}`} />
