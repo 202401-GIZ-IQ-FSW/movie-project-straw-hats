@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '/components/Navbar';
 import SearchBar from '/Components/SearchBar/SearchBar'; // Update the path if needed
 import '/src/app/globals.css';
 
@@ -15,7 +14,7 @@ const HomePage = ({ movies: initialMovies }) => {
   
 
   return (
-    <div>q
+    <div>
       <Navbar />
       <div className="container mx-auto py-8">
         <SearchBar onSearch={handleSearch} />
