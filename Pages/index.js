@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '/components/Navbar';
+import SearchBar from '/Components/SearchBar/SearchBar'; // Update the path if needed
 import '/src/app/globals.css';
 
-const HomePage = ({ movies }) => {
+const HomePage = ({ movies: initialMovies }) => {
+  const [movies, setMovies] = useState(initialMovies);
+
+  const handleSearch = (searchTerm) => {
+    const filteredMovies = initialMovies.filter(movie =>
+      movie.title && movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setMovies(filteredMovies);
+  };
+  
+
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto py-8">
+        <SearchBar onSearch={handleSearch} />
         <h1 className="text-3xl font-bold mb-4">Welcome to Straw Hats</h1>
         <p className="text-lg text-gray-700 mb-6">Discover the latest movies, explore top-rated TV series, and read reviews from fellow movie enthusiasts.</p>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Bring me your best</button>
